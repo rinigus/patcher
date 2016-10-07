@@ -4,10 +4,10 @@ ZDIR=zip
 ZFILE=update.android.zip
 
 SDIR=system
-TFILE=update-system.tar.bz2
+TFILE=update-system.tar.gz
 
 rm -f $TFILE
-sudo tar cvfj $TFILE system
+sudo tar cvfz $TFILE system
 mv $TFILE $ZDIR
 
 cd zip
