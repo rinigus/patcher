@@ -32,8 +32,8 @@ scripts. Android ZIPs can be somewhere else in the system.
   uncompress-android-zip.sh script. Note that this script will run
   sudo to mount extracted image in the end of it:
 
-  * ./uncompress-android-zip.sh cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip
-  * ./uncompress-android-zip.sh cm-12.1-20160928-UNOFFICIAL-mako.zip
+  * `./uncompress-android-zip.sh cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip`
+  * `./uncompress-android-zip.sh cm-12.1-20160928-UNOFFICIAL-mako.zip`
 
   This would result in system partitions visible under
   
@@ -47,15 +47,15 @@ scripts. Android ZIPs can be somewhere else in the system.
   images. Since you want to preserve UID/GID, you have to run the
   script doing it as sudo:
 
-  * sudo python patcher.py cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip-uncompressed/system-fs cm-12.1-20160928-UNOFFICIAL-mako.zip-uncompressed/system-fs system
+  * `sudo python patcher.py cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip-uncompressed/system-fs cm-12.1-20160928-UNOFFICIAL-mako.zip-uncompressed/system-fs system`
 
   The arguments are: <OLD_VERSION_SYSTEMFS> <NEW_VERSION_SYSTEMFS> system
 
   with the last one being the folder that would contain the
   difference. Keep it as "system" to use the next script.
 
-* *Verify that zip/META-INF/com/google/android/updater-script
-  corresponds to your device!* Right now, its made for Nexus 4 with
+* **Verify that zip/META-INF/com/google/android/updater-script
+  corresponds to your device!** Right now, its made for Nexus 4 with
   corresponding binary blob
   zip/META-INF/com/google/android/update-binary. Take a look on your
   device Sailfish image to get 
@@ -76,7 +76,7 @@ scripts. Android ZIPs can be somewhere else in the system.
 
 * Make flashable ZIP by running
 
-  * ./makezip.sh
+  * `./makezip.sh`
 
   You (maybe) will be asked for sudo password again to make get all
   files in system (permissions of some files).
@@ -86,13 +86,13 @@ scripts. Android ZIPs can be somewhere else in the system.
 * Cleanup:
 
   * unmount loop filesystems:
-    * sudo umount cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip-uncompressed/system-fs
-    * sudo umount cm-12.1-20160928-UNOFFICIAL-mako.zip-uncompressed/system-fs
+    * `sudo umount cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip-uncompressed/system-fs`
+    * `sudo umount cm-12.1-20160928-UNOFFICIAL-mako.zip-uncompressed/system-fs`
 
   * Delete temp files/folders:
-    * sudo rm -rf system
-    * rm -rf cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip-uncompressed
-    * rm -rf cm-12.1-20160928-UNOFFICIAL-mako.zip-uncompressed
+    * `sudo rm -rf system`
+    * `rm -rf cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip-uncompressed`
+    * `rm -rf cm-12.1-20160928-UNOFFICIAL-mako.zip-uncompressed`
 
  You would have your new update zip and corresponding tar.bz2 in zip
  folder.
