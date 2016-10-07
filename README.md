@@ -26,7 +26,7 @@ scripts. Android ZIPs can be somewhere else in the system.
 
 * Download two Android ZIPs. In this example we will use
   cm-12.1-20151007-SNAPSHOT-YOG4PAO334-mako.zip and
-  cm-12.1-20160928-UNOFFICIAL-mako.zip as an example.
+  cm-12.1-20160928-UNOFFICIAL-mako.zip.
 
 * Extract and mount system partition via mount-loop. For that, use
   uncompress-android-zip.sh script. Note that this script will run
@@ -54,8 +54,8 @@ scripts. Android ZIPs can be somewhere else in the system.
   with the last one being the folder that would contain the
   difference. Keep it as "system" to use the next script.
 
-* Verify that zip/META-INF/com/google/android/updater-script
-  corresponds to your device! Right now, its made for Nexus 4 with
+* *Verify that zip/META-INF/com/google/android/updater-script
+  corresponds to your device!* Right now, its made for Nexus 4 with
   corresponding binary blob
   zip/META-INF/com/google/android/update-binary. Take a look on your
   device Sailfish image to get 
