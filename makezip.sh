@@ -7,7 +7,7 @@ SDIR=system
 TFILE=update-system.tar.gz
 
 rm -f $TFILE
-sudo tar cvfz $TFILE system
+sudo tar cvfz $TFILE -C system .
 mv $TFILE $ZDIR
 
 cd zip
