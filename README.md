@@ -66,9 +66,10 @@ scripts. Android ZIPs can be somewhere else in the system.
   * Line with assert in zip/META-INF/com/google/android/updater-script
     has to be updated
 
-  * IMPORTANT! Update line with mount. Right now its
+  * IMPORTANT! Update lines with mount. Right now its
 
     * mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
+    * mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data");
 
     See what are yours mount options (you could check corresponding
     scripts for CM and SFOS).
@@ -78,7 +79,7 @@ scripts. Android ZIPs can be somewhere else in the system.
 
   * `./makezip.sh`
 
-  You (maybe) will be asked for sudo password again to make get all
+  You maybe be asked for sudo password again to make get all
   files in system (permissions of some files).
 
   Flashable ZIP should be under "zip" subfolder under name update.android.zip
@@ -97,3 +98,30 @@ scripts. Android ZIPs can be somewhere else in the system.
  You would have your new update zip and corresponding tar.bz2 in zip
  folder.
   
+  
+## Upgrading CM base on device
+
+To update the base on your device, you have to choose which method do
+you prefer: flashing from recovery or update on the live
+system. Below, the both options are demonstrated:
+
+* Flashing from recovery (THIS IS NOT TESTED, LET ME KNOW IF ANYTHING
+  IS WRONG) (WARNING 2: NOT SURE IT WOULD WORK ON MULTIROM ASIS):
+  
+  * get update.android.zip from zip folder into your device
+  * go to your recovery and flash it on the top of Sailfish
+    installation.
+
+
+* Update CM system base in MultiROM in 'live' system. I had to use
+  this approach since my version of MultiROM did not allow to flash on
+  top of Sailfish installation. 
+
+	* download update-system.tar.gz into your device
+	* enable Developer mode
+	* enter developer mode (devel-su) and under it:
+	  * cd /data/.stowaways/sailfishos/system
+	  * tar zxvf ~nemo/update-system.tar.gz
+
+	The last line assumed that downloaded update-system.tar.gz was in
+    ~nemo.
