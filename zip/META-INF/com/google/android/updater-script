@@ -12,10 +12,9 @@ assert(getprop("ro.product.device") == "mako" || getprop("ro.build.product") == 
 ui_print("Device check succeeded, mounting filesystem ...");
 
 mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
-mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data");
 
 ui_print("Copying filesystem archive ...");
-package_extract_file("update-system.tar.gz", "/data/update-system.tar.gz");
+package_extract_file("update-system.tar.gz", "/tmp/update-system.tar.gz");
 
 ui_print("Copying installation script ...");
 package_extract_file("updater-unpack.sh", "/tmp/updater-unpack.sh");
@@ -26,7 +25,6 @@ run_program("/tmp/updater-unpack.sh");
 
 ui_print("Unmounting filesystems ...");
 unmount("/system");
-unmount("/data");
 
 ui_print("Base update done!");
 
