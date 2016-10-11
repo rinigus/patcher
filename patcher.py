@@ -18,6 +18,8 @@ parser.add_argument('write_dir', type=str,
 
 args = parser.parse_args()
 
+os.system("./initialize_system_tree.sh " + args.new_dir)
+
 for (dirpath, dirnames, filenames) in os.walk(args.new_dir):
     for filename in filenames:
         fname = os.sep.join([dirpath, filename])
@@ -45,5 +47,5 @@ for (dirpath, dirnames, filenames) in os.walk(args.new_dir):
             dcp = os.path.dirname(fcp)
             #print fcp, dcp
             if not os.path.exists(dcp):
-                os.makedirs(dcp, 0755)
-            os.system("cp -p " + fnew + " " + fcp)
+                print "For some reason, a directory is missing. This is an error. Directory:", dcp
+            os.system("cp -a " + fnew + " " + fcp)
